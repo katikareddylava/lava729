@@ -1,0 +1,40 @@
+<div class="container">
+        <h3> Cash and Cash Equivalents </h3>
+       <table mat-table [dataSource]="cashAndCashdataSource" class="mat-elevation-z8 sheet">
+       
+         <!-- name Column -->
+         <ng-container matColumnDef="reportDate">
+           <th mat-header-cell *matHeaderCellDef> Audit Period </th>
+           <td mat-cell *matCellDef="let element"> {{element.reportDate}} </td>
+         </ng-container>
+       
+         <!-- performance Column -->
+         <ng-container matColumnDef="currentCash">
+           <th mat-header-cell *matHeaderCellDef> Spending Amount (USD) </th>
+           <td mat-cell *matCellDef="let element"> {{element.currentCash}} </td>
+         </ng-container>
+       
+       
+         <tr mat-header-row *matHeaderRowDef="cashAndCashdisplayedColumns"></tr>
+         <tr mat-row *matRowDef="let row; columns: cashAndCashdisplayedColumns;"></tr>
+       </table>
+        <h3> Short-term Equivalents </h3>
+       <table mat-table [dataSource]="shortTermdataSource" class="mat-elevation-z8 sheet">
+       
+         <!-- name Column -->
+         <ng-container matColumnDef="reportDate">
+           <th mat-header-cell *matHeaderCellDef> Audit Period </th>
+           <td mat-cell *matCellDef="let element"> {{element.reportDate}} </td>
+         </ng-container>
+       
+         <!-- performance Column -->
+         <ng-container matColumnDef="totalCash">
+           <th mat-header-cell *matHeaderCellDef> Spending Amount (USD) </th>
+           <td mat-cell *matCellDef="let element"> {{element.totalCash}} </td>
+         </ng-container>
+       
+       
+         <tr mat-header-row *matHeaderRowDef="shortTremdisplayedColumns"></tr>
+         <tr mat-row *matRowDef="let row; columns: shortTremdisplayedColumns;"></tr>
+       </table>
+</div>

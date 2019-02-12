@@ -1,0 +1,26 @@
+
+<div class="container">
+    <h4>{{Heading}}</h4>
+    <h4>{{Text}}</h4>
+    <fusioncharts width="700" height="400" type="Column2d" [dataSource]="graphDataSource"></fusioncharts>
+    <mat-form-field>
+            <input matInput placeholder="Sector | Performance" [(ngModel)]="filter" class="mt-10"/>
+    </mat-form-field>
+    <button mat-button color="primary" (click)="ApplyFilter()">Apply</button> 
+    <div class="table-responsive mt-10">
+        <table class="table table-bordered" matSort (matSortChange)="sortData($event)">
+            <thead>
+                <tr>
+                    <th mat-sort-header="name"> Sector</th>
+                    <th mat-sort-header="performance">  Change %</th>
+                </tr>
+            </thead>
+         <tbody>
+             <tr *ngFor='let trend of trends'>
+                <td>{{trend.name}}</td>
+                <td>{{trend.performance | addPercentage}}</td>
+             </tr>
+         </tbody>
+        </table>
+</div>
+</div>

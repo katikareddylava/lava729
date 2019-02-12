@@ -1,0 +1,100 @@
+ <div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+    
+              <div class="col-sm-4">
+                <label>Firm Name</label>
+              </div>
+              <div class="col-sm-8">
+                <input type="text" [(ngModel)]="firmName" readonly="readonly"/>
+              </div>
+            </div>
+            <div class="row">
+    
+              <div class="col-sm-4">
+                <label>Sector</label>
+              </div>
+              <div class="col-sm-8">
+                <input type="text" [(ngModel)]="sector" readonly="readonly"/>
+              </div>
+            </div>
+            <div class="row">
+    
+              <div class="col-sm-4">
+                <label>Industry</label>
+              </div>
+              <div class="col-sm-8">
+                <input type="text" [(ngModel)]="industry" readonly="readonly"/>
+              </div>
+            </div>
+            <div class="row">
+    
+              <div class="col-sm-4">
+                <label>Website</label>
+              </div>
+              <div class="col-sm-8">
+                <input type="text" [(ngModel)]="website" readonly="readonly"/>
+              </div>
+            </div>
+            <div class="row">
+    
+              <div class="col-sm-4">
+                <label>CEO</label>
+              </div>
+              <div class="col-sm-8">
+                <input type="text" [(ngModel)]="ceo" readonly="readonly"/>
+              </div>
+            </div>
+            <div class="row">
+    
+              <div class="col-sm-4">
+                <label>Price</label>
+              </div>
+              <div class="col-sm-8">
+                <input type="text" value="{{price | addCurrencyName}}" title="{{currency}}" readonly="readonly"/>
+              </div>
+            </div>
+            <div class="row">
+    
+              <div class="col-sm-4">
+                <label>Ticker</label>
+              </div>
+              <div class="col-sm-8">
+                <input type="text" [(ngModel)]="ticker" readonly="readonly"/>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="row">
+               <div class="col-sm-3" (deferLoad)="true">
+                 <img src="{{imgUrl}}"  width="70" height="70">
+               </div>
+               <div class="col-sm-3">
+                  <app-star></app-star>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-sm-12">
+                 <label>About the company</label>
+               </div>
+               <div class="col-sm-12">
+                 <textarea name='description' [(ngModel)]='description' class="textArea" readonly="readonly">
+                 </textarea>
+               </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 price">
+                Hover over the price to show in locale(Ex: USD -> INR)
+      </div>
+            </div>
+          </div>
+
+     </div>
+     <div class="ft-right">
+      <button mat-button color="primary" (click)="goBack()">Back</button>
+      <button mat-button color="primary" routerLink="/balancesheet">Balance Sheet</button>
+     </div>
+     
+
+  </div>

@@ -1,0 +1,51 @@
+<div class="container">
+    <h4>
+        {{title}}
+      </h4>
+      <div class="mat-app-background basic-container">
+        Filter By:
+        <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="CompanyName | Ticker">
+        </mat-form-field>
+        
+        <mat-table [dataSource]="activeFirmsDataSource" matSort class="mat-elevation-z8">
+        
+              <ng-container matColumnDef="checkbox">
+                <mat-header-cell *matHeaderCellDef><mat-checkbox></mat-checkbox></mat-header-cell>
+                <mat-cell *matCellDef="let element"><mat-checkbox></mat-checkbox></mat-cell>
+              </ng-container>
+        
+              <ng-container matColumnDef="companyName">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Company Name </mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.companyName}}<button mat-button color="primary" routerLink="/firmdetail" >more</button></mat-cell>
+              </ng-container>
+            
+        
+              <ng-container matColumnDef="symbol">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Ticker </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+                
+              </ng-container>
+            
+        
+              <ng-container matColumnDef="latestPrice">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Price </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.latestPrice}} </mat-cell>
+              </ng-container>
+            
+        
+              <ng-container matColumnDef="change">
+                <mat-header-cell *matHeaderCellDef> Changes </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.change}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef='edit'>
+                  <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                  <mat-cell *matCellDef=""> <button mat-button color="primary">Edit</button> </mat-cell>
+              </ng-container>
+        
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns:displayedColumns;"></mat-row>
+        
+        </mat-table>
+        </div>
+</div>
